@@ -1,4 +1,8 @@
-from django.utils.importlib import import_module
+import django
+if django.VERSION < (1, 9):
+    from django.utils.importlib import import_module
+else:
+    from importlib import import_module
 from django.core.exceptions import ImproperlyConfigured
 
 from .settings import REQUEST_IP_RESOLVER
